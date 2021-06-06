@@ -29,3 +29,13 @@ jobs:
       env:
           UID: ${{secrets.UID}}
           AUTH: ${{secrets.AUTH}}
+    - name: Commit files
+      run: |
+        git config --local user.email "andyjjrt@gmail.com"
+        git config --local user.name "andyjjrt"
+        git commit -m "daily update" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
