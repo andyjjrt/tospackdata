@@ -7,8 +7,8 @@ import json
 if not os.path.isdir("data"):
 	os.mkdir("data")
 
-uid = input("uid: ")
-auth = input ("auth: ")
+uid = os.environ['UID']
+auth = os.environ['AUTH']
 with open('data/data.json', 'w') as f:
     f.write('{"uid":"' + str(uid) + '", "auth":"' + str(auth) + '"}')
 
