@@ -4,6 +4,7 @@ import os
 import json5 as json5
 import json
 from datetime import datetime
+from seal import seal
 
 if not os.path.isdir("data"):
 	os.mkdir("data")
@@ -35,45 +36,8 @@ with open('data/MONSTER_TEAM.json', 'w') as f:
     f.write(monster_team)
 with open('data/MONSTER_ACTIVE.json', 'w') as f:
     f.write(monster_active)
-
-seal = {
-    "black": {
-        "sec1":[
-            [1189, 1371, 1372], #黑水妍
-            [1190, 1373, 1374], #黑火妍
-            [2176], #光妍
-            [2177], #暗妍
-        ],
-        "sec2":[
-            [1626, 2545], #亞特蘭提斯
-            [1719, 2634], #龐貝,
-            [1818], #美索不達米亞
-            [1439, 2379], #瑪雅
-            [1440, 2244], #阿努比斯
-        ],
-        "sec3":[
-            [2081], #艾莉亞
-            [2149], #賈比爾,
-            [2207], #青圭
-            [2480], #拉普拉斯
-            [2380], #潘朵拉
-        ],
-        "sec4":[
-            [1983], #秦始皇
-            [2305], #項羽,
-            [2595], #蚩尤
-            #[1404, 1981], #鐵扇
-            #[1405, 1982], #唐三藏
-        ],
-        "sec5":[
-            [1868], #貝西摩斯
-            [1869], #莎娜,
-            [1870], #巴哈姆特,
-            [1562], #弗麗嘉
-            [2099], #虹伶
-        ],
-    }
-}
+with open('data/SEAL_DATA.json', 'w') as f:
+    f.write(json.dumps(seal))
 
 print("end at " + str(datetime.utcnow()))
 print("job done")
